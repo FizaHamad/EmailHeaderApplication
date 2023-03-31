@@ -1,0 +1,54 @@
+<div class="container">
+
+    <br><br>
+    <div class="jumbotron mt-4 headerrr">
+    <h1 class="display-4" style="color: white;text-align: center;">Upload the sender email address</h1>
+    <hr class="my-4">
+    <input type="text" class="form-control mr-sm-2" placeholder="Enter Email" name="fromAdd" [(ngModel)]="fromAdd" #ctrl="ngModel">
+    <br><br><br>
+    <div style="text-align: center;">
+        <button class="btn btn-primary btn-lg" (click)="submit()">Submit</button>
+    </div>
+    </div>
+
+     
+
+  
+      <div class="card mt-4" class="alert alert-success" style="width: 18rem;margin:0 auto;" *ngIf="(showDetail) && (EmailRes?.reason == 'accepted_email')" >
+      <div class="card-body">
+        <h5 class="card-title"><b>Email details:</b> </h5>
+        <p class="card-text"><b>Email Status:</b> {{EmailRes.reason}}</p>
+        <p class="card-text"><b>Result: </b>{{EmailRes.result}}</p>
+        <p class="card-text"><b>User:</b> {{EmailRes.user}}</p>
+        <p class="card-text"><b>Domain:</b> {{EmailRes.domain}}</p>
+      </div>
+      </div>
+
+      <div class="card mt-4" class="alert alert-danger" style="width: 18rem;margin:0 auto;" *ngIf="(showDetail) && (EmailRes?.reason == 'rejected_email' || EmailRes?.reason == 'invalid_email' || EmailRes?.reason == 'invalid_domain')" >
+        <div class="card-body">
+          <h5 class="card-title"><b>Email details:</b> </h5>
+          <p class="card-text"><b>Email Status:</b> {{EmailRes.reason}}</p>
+          <p class="card-text"><b>Result: </b>{{EmailRes.result}}</p>
+          <p class="card-text"><b>User:</b> {{EmailRes.user}}</p>
+          <p class="card-text"><b>Domain:</b> {{EmailRes.domain}}</p>
+        </div>
+        </div>
+  
+      <!--
+          <div class="card mt-4" style="width: 18rem;">
+      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+      </div>
+
+      -->
+  </div>
+  
+  <div class="jumbotron jumbotron-fluid mt-5 action">
+    <div class="container">
+        <p class="text-center">© Cyber Detect 2023</p>
+    </div>
+  </div>
